@@ -3,3 +3,35 @@
 	A minimal percussion software synthesizer
 	--
 
+
+	Overview
+	--
+
+	Darabana is a simple software synthesizer which is aimed at generating
+percussion instruments. It can output .wav files, usable across any modern
+Digital Audio Workstation.
+
+	Synth
+	--
+
+	The synthesizing algorithm is composed of two oscillators, a sine and a
+white noise one, both of which are controlled by similar parameters, such
+as amplitude, decay, frequency for the sine, and color for the noise. The sine
+oscillator also includes frequency decay as a parameter.
+	The waveforms are then combined, and passed through a comb filter, which
+aims at emulating the instrument's acoustic chamber.
+
+	Export
+	--
+
+	Darabana can export .wav files through libsndfile, which are by default
+32-bit floats, with only one audio channel.
+
+	Presets
+	--
+
+	Presets are simply lists of parameters, separated by spaces. This format
+was chosen specifically to be editable with any text editor. It was also the
+easiest to implement.
+
+
