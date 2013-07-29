@@ -193,7 +193,12 @@ void gui_load_preset( GtkWidget *w, gpointer data )
 		for( i = 0; i < SLIDER_COUNT; i++ )
 		{
 			float v = 0.0f;
-			fscanf( f, "%f ", &v );
+			if( !fscanf( f, "%f ", &v ) )
+			{
+				gtk_widget_destroy( load_dialog );
+				raise_warning( "Unable to load preset." );
+				return;
+			}
 
 			if( ( v >= adj_data[i][1] ) &&
 				( v <= adj_data[i][2] ) )
